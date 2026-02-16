@@ -1,6 +1,52 @@
 # runbook CLI
 
+[![CI](https://github.com/RAI015/runbook-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/RAI015/runbook-cli/actions/workflows/ci.yml)
+
 Go製CLI `runbook` は `runbook.yaml` を読み込み、Markdown形式のRunbookを生成します。
+
+## Demo
+
+入力 (`examples/runbook.yaml` の一部):
+
+```yaml
+title: "障害一次対応（API 5xx増加）"
+purpose: "顧客影響を最小化し、原因切り分けと一次復旧を行う"
+steps:
+  - title: "状況把握"
+    items:
+      - "監視ダッシュボードで5xx率/レイテンシを確認"
+```
+
+出力 (`runbook.md` の一部):
+
+```md
+# 障害一次対応（API 5xx増加）
+
+## 概要
+- purpose: 顧客影響を最小化し、原因切り分けと一次復旧を行う
+
+## 手順
+1. 状況把握
+   - 監視ダッシュボードで5xx率/レイテンシを確認
+```
+
+## Quickstart
+
+```bash
+# テスト
+go test ./...
+
+# 生成（最短）
+go run ./cmd/runbook generate -i examples/runbook.yaml -o runbook.md
+```
+
+`make` が使える場合:
+
+```bash
+make test
+make build
+make demo
+```
 
 ## 導入目的
 
@@ -8,18 +54,6 @@ Go製CLI `runbook` は `runbook.yaml` を読み込み、Markdown形式のRunbook
 - 手順書フォーマットの揺れを減らし、レビューしやすい形に統一する
 - 運用ナレッジを明文化して、担当者依存（属人化）を減らす
 - 障害対応や運用手順の更新を、PRベースで継続的に改善しやすくする
-
-## Usage
-
-```bash
-go run ./cmd/runbook generate -i runbook.yaml -o runbook.md
-```
-
-ビルド後は次の形で実行できます。
-
-```bash
-./runbook generate -i runbook.yaml -o runbook.md
-```
 
 ## 適用シナリオ
 
@@ -65,7 +99,3 @@ rollback: # optional
 notes: # optional
   - string
 ```
-
-## Example
-
-サンプル入力は `examples/runbook.yaml` を参照してください。
