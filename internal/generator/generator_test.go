@@ -32,13 +32,18 @@ notes:
 
 	checks := []string{
 		"# 障害一次対応（API 5xx増加）",
-		"## Purpose",
-		"## Steps",
+		"## 概要",
+		"- purpose: 顧客影響を最小化し、原因切り分けと一次復旧を行う",
+		"- owner: Backend",
+		"- severity: SEV2",
+		"## 事前確認",
+		"## 手順",
 		"1. 状況把握",
 		"監視ダッシュボードで5xx率/レイテンシを確認",
-		"## Rollback",
-		"### Criteria",
-		"## Notes",
+		"## ロールバック",
+		"### criteria",
+		"### actions",
+		"## メモ",
 	}
 	for _, c := range checks {
 		if !strings.Contains(got, c) {
