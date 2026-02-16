@@ -72,7 +72,7 @@ func renderMarkdown(rb Runbook) string {
 	b.WriteString("\n\n")
 
 	b.WriteString("## 概要\n")
-	b.WriteString("- purpose: ")
+	b.WriteString("- 目的: ")
 	b.WriteString(rb.Purpose)
 	b.WriteString("\n")
 	if rb.Owner != "" {

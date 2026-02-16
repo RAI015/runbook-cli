@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 
-	"runbook-gen/internal/generator"
+	"github.com/RAI015/runbook-cli/internal/generator"
 )
 
 func main() {

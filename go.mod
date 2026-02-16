@@ -1,4 +1,4 @@
-module runbook-gen
+module github.com/RAI015/runbook-cli
 
 go 1.22.4
 

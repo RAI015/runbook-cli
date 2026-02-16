@@ -3,6 +3,7 @@
 [![CI](https://github.com/RAI015/runbook-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/RAI015/runbook-cli/actions/workflows/ci.yml)
 
 Go製CLI `runbook` は `runbook.yaml` を読み込み、Markdown形式のRunbookを生成します。
+Runbookを「PRで更新できる運用資産」にするための最小CLIです。
 
 ## Demo
 
@@ -23,7 +24,7 @@ steps:
 # 障害一次対応（API 5xx増加）
 
 ## 概要
-- purpose: 顧客影響を最小化し、原因切り分けと一次復旧を行う
+- 目的: 顧客影響を最小化し、原因切り分けと一次復旧を行う
 
 ## 手順
 1. 状況把握
@@ -46,6 +47,12 @@ go run ./cmd/runbook generate -i examples/runbook.yaml -o runbook.md
 make test
 make build
 make demo
+```
+
+インストール:
+
+```bash
+go install github.com/RAI015/runbook-cli/cmd/runbook@latest
 ```
 
 ## 導入目的
@@ -99,3 +106,7 @@ rollback: # optional
 notes: # optional
   - string
 ```
+
+## License
+
+MIT License
