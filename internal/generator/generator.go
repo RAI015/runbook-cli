@@ -76,12 +76,12 @@ func renderMarkdown(rb Runbook) string {
 	b.WriteString(rb.Purpose)
 	b.WriteString("\n")
 	if rb.Owner != "" {
-		b.WriteString("- owner: ")
+		b.WriteString("- 担当: ")
 		b.WriteString(rb.Owner)
 		b.WriteString("\n")
 	}
 	if rb.Severity != "" {
-		b.WriteString("- severity: ")
+		b.WriteString("- 重大度: ")
 		b.WriteString(rb.Severity)
 		b.WriteString("\n")
 	}
@@ -111,7 +111,7 @@ func renderMarkdown(rb Runbook) string {
 	if len(rb.Rollback.Criteria) > 0 || len(rb.Rollback.Actions) > 0 {
 		b.WriteString("## ロールバック\n")
 		if len(rb.Rollback.Criteria) > 0 {
-			b.WriteString("### criteria\n")
+			b.WriteString("### 判断基準\n")
 		}
 		for _, v := range rb.Rollback.Criteria {
 			b.WriteString("- ")
@@ -122,7 +122,7 @@ func renderMarkdown(rb Runbook) string {
 			b.WriteString("\n")
 		}
 		if len(rb.Rollback.Actions) > 0 {
-			b.WriteString("### actions\n")
+			b.WriteString("### 実施内容\n")
 		}
 		for _, r := range rb.Rollback.Actions {
 			b.WriteString("- ")
